@@ -31,6 +31,15 @@ describe 'shares' do
 			expect(page).to have_content 'A brand new beard'
 			expect(current_path).to eq '/shares'
 		end
+		it 'adds a picture to the share' do 
+			visit '/shares'
+			click_link 'New share'
+			fill_in 'Title', with: 'Baby Beard'
+			attach_file 'Picture', Rails.root.join('spec/images/baby_beard.jpeg')
+			click_button 'Create share'
+			expect(page).to have_css 'img.uploaded-pic'
+		end
+
 	end
 
 end

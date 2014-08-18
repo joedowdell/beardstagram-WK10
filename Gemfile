@@ -45,3 +45,5 @@ gem 'rspec-rails'
 gem 'capybara'
 
 end
+
+gem 'paperclip', github: 'thoughtbot/paperclip'

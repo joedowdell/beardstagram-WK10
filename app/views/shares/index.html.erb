@@ -1,6 +1,7 @@
 <% if @shares.any? %>
 	<% @shares.each do |share| %>
 		<h3><%= share.title %></h3>
+		<%= image_tag share.picture.url(:medium), class: 'uploaded-pic' %>
 	<% end %>
 <% else %>
  No shares
