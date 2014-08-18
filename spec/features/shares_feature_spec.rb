@@ -11,4 +11,26 @@ describe 'shares' do
 		
 	end
 
+	context 'has a shares' do 
+		before do
+			Share.create(title: "Dis ma beard")
+		end
+		it 'shows a list of all shared beards' do
+			visit '/shares'
+			expect(page).to have_content "Dis ma beard"
+		end
+	end
+
+	context 'creating a share' do
+		it 'adds the beard from a form' do
+			visit '/shares'
+			click_link 'New share'
+			fill_in 'Title' , with: 'A brand new beard'
+			click_button 'Create share'
+
+			expect(page).to have_content 'A brand new beard'
+			expect(current_path).to eq '/shares'
+		end
+	end
+
 end

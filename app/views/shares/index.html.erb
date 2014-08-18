@@ -1,1 +1,9 @@
-No shares
+<% if @shares.any? %>
+	<% @shares.each do |share| %>
+		<h3><%= share.title %></h3>
+	<% end %>
+<% else %>
+ No shares
+<% end %>
+
+<%= link_to 'New share', new_share_path %>
