@@ -47,3 +47,4 @@ gem 'capybara'
 end
 
 gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'aws-sdk'
