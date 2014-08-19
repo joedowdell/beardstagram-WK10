@@ -1,7 +1,13 @@
 <% if @shares.any? %>
 	<% @shares.each do |share| %>
 		<h3><%= share.title %></h3>
-		<%= image_tag share.picture.url(:medium), class: 'uploaded-pic' %>
+		<% if share.picture.present? %>
+			<%= image_tag share.picture.url(:medium), class: 'uploaded-pic' %>
+		<% end %>
+
+		<% share.clips.each do |clip| %>
+			<%= link_to clip.text, '#' %>
+		<% end %>
 	<% end %>
 <% else %>
  No shares

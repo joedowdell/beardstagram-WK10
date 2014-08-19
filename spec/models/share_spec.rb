@@ -25,8 +25,22 @@ RSpec.describe Share, :type => :model do
   			expect(share.clips.count).to eq 2
   		end
 		end
-		
-	end
+		context 'with existing clips' do 
+			before {Clip.create(text: '#Beardy')}
+			
+			it 'reuses them' do 
+				share.clip_list = "#Beardy, #dreadz"
+				expect(Clip.count).to eq 2
+			end
+		end
 
+		context 'with duplicate clips' do
+			it 'does not duplicate clips' do
+				share.clip_list = "#Beardy, #dreadz, #Beardy"
+				expect(share.clips.count).to eq 2
+			end
 
+		end
+
+end
 end
