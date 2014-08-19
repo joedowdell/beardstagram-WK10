@@ -10,4 +10,17 @@ class Share < ActiveRecord::Base
 
 
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
+  has_and_belongs_to_many :clips
+
+  def clip_list
+  end
+
+  def clip_list=(some_clips)
+  	return if some_clips.empty?
+
+ 		some_clips.split(', ').uniq.each do |clip|
+ 			self.clips << Clip.find_or_create_by(text: clip)
+ 		end
+ 	end
+
 end

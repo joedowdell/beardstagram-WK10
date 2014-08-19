@@ -6,9 +6,7 @@ describe 'user management' do
 
 		it 'users can not share pictures' do
 			visit '/shares'
-			click_link 'New share'
-			
-			expect(page).to have_content 'Please sign up to Beardstagram'
+			expect(page).not_to have_link 'New share'
 
 		end
 
