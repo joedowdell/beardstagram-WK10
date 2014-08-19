@@ -22,6 +22,12 @@ describe 'shares' do
 	end
 
 	context 'creating a share' do
+
+		before(:each) do 
+			user = User.create(email: 'a@a.com', password: '12345678', password_confirmation: '12345678')
+			login_as(user, scope: :user) 
+		end
+
 		it 'adds the beard from a form' do
 			visit '/shares'
 			click_link 'New share'

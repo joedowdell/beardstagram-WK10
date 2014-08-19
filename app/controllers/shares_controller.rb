@@ -6,6 +6,10 @@ class SharesController < ApplicationController
 
 	def new
 		@share = Share.new
+		if !user_signed_in?
+			flash[:notice] = "Please sign up to Beardstagram to share pictures"
+			redirect_to '/shares'
+		end
 	end
 
 	def create
