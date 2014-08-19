@@ -1,0 +1,14 @@
+<h1>Shares clipped with <%= @clip.text %></h1>
+
+<% @clip.shares.each do |share| %>
+		<h3><%= share.title %></h3>
+		<% if share.picture.present? %>
+			<%= image_tag share.picture.url(:medium), class: 'uploaded-pic' %>
+		<% end %>
+
+		<% share.clips.each do |clip| %>
+			<%= link_to clip.text, clip %>
+
+		<% end %>
+	<% end %>
+

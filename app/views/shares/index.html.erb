@@ -6,7 +6,8 @@
 		<% end %>
 
 		<% share.clips.each do |clip| %>
-			<%= link_to clip.text, '#' %>
+			<%= link_to clip.text, clip %>
+
 		<% end %>
 	<% end %>
 <% else %>

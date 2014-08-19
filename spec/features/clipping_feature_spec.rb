@@ -20,3 +20,19 @@ describe 'clip posts' do
 	end
 
 end
+
+describe 'filtering by clips' do
+
+	before do
+		Share.create(title: 'Share A', clip_list: '#Beardo, #dreadz')
+		Share.create(title: 'Share B', clip_list: '#beardy, #dreadz')
+	end
+
+	it 'filters to only show clipped posts' do 
+		visit '/shares'
+		click_link '#Beardo'
+		expect(page).to have_css 'h1', text: 'Shares clipped with #Beardo'
+		expect(page).to have_content 'Share A'
+		expect(page).not_to have_content 'Share B'
+	end
+end
