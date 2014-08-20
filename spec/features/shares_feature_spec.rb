@@ -30,7 +30,7 @@ describe 'shares' do
 
 		it 'adds the beard from a form' do
 			visit '/shares'
-			click_link 'New share'
+			click_link 'New Share'
 			fill_in 'Title' , with: 'A brand new beard'
 			click_button 'Create share'
 
@@ -39,7 +39,7 @@ describe 'shares' do
 		end
 		it 'adds a picture to the share' do 
 			visit '/shares'
-			click_link 'New share'
+			click_link 'New Share'
 			fill_in 'Title', with: 'Baby Beard'
 			attach_file 'Picture', Rails.root.join('spec/images/baby_beard.jpeg')
 			click_button 'Create share'

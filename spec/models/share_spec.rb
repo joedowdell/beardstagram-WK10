@@ -16,27 +16,27 @@ RSpec.describe Share, :type => :model do
   	context 'multiple tags' do
 
   		it 'gives 1 clip to the post' do 
-  			share.clip_list = "#Beardy"
+  			share.clip_list = "#beardy"
   			expect(share.clips.count).to eq 1
   		end
 
   		it 'adds all the tags seperately' do
-  			share.clip_list = "#Beardy, #Beardo!"
+  			share.clip_list = "#beardy, #beardo!"
   			expect(share.clips.count).to eq 2
   		end
 		end
 		context 'with existing clips' do 
-			before {Clip.create(text: '#Beardy')}
+			before {Clip.create(text: '#beardy')}
 			
 			it 'reuses them' do 
-				share.clip_list = "#Beardy, #dreadz"
+				share.clip_list = "#beardy, #dreadz"
 				expect(Clip.count).to eq 2
 			end
 		end
 
 		context 'with duplicate clips' do
 			it 'does not duplicate clips' do
-				share.clip_list = "#Beardy, #dreadz, #Beardy"
+				share.clip_list = "#beardy, #dreadz, #beardy"
 				expect(share.clips.count).to eq 2
 			end
 
