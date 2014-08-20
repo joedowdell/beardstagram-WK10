@@ -19,6 +19,7 @@ describe 'clip posts' do
 		expect(page).to have_link '#stubble'
 	end
 
+
 end
 
 describe 'filtering by clips' do
@@ -35,4 +36,12 @@ describe 'filtering by clips' do
 		expect(page).to have_content 'Share A'
 		expect(page).not_to have_content 'Share B'
 	end
+
+	it 'accessible via pretty URLs' do
+    visit '/clips/beardo' 
+
+    expect(page).to have_content 'Share A'
+  end 
+
 end
+
