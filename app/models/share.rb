@@ -18,7 +18,7 @@ class Share < ActiveRecord::Base
   def clip_list=(some_clips)
   	return if some_clips.empty?
 
- 		some_clips.split(', ').uniq.each do |clip|
+ 		some_clips.downcase.split(', ').uniq.each do |clip|
  			self.clips << Clip.find_or_create_by(text: clip)
  		end
  	end

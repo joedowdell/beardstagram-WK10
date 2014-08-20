@@ -40,22 +40,19 @@
 	  <p class="alert"><%= alert %></p>
 
 
-<% if user_signed_in? %>
-	<%= link_to 'New share', new_share_path %>
-	<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-<% else %>
-	<%= link_to 'Sign in', new_user_session_path %>
-	<%= link_to 'Register', new_user_registration_path %>
-<% end %>
 
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><%= link_to 'Register', new_user_registration_path %>Sign Up</a></li>
-          <li><a href="new_user_session_path">Sign In</a></li>
-          <li><a href="#">Contact</a></li>
+        	<% if user_signed_in? %>
+	          <li class="active"><a href="/shares/new">New Share</a></li>
+	          <li><a href="#">Sign Out</a></li>
+        	<%else%>
+	          <li class="active"><a href="/users/sign_up">Sign Up</a></li>
+	          <li><a href="/users/sign_in">Sign In</a></li>
+	        <%end%>
         </ul>
-        <h3 class="text-muted">Beardstagram</h3>
+        <a href="/shares"><h3 class="text-muted"><%= image_tag('beardstagram.png')%>Beardstagram</h3></a>
       </div>
 
       <div class="jumbotron">
@@ -63,7 +60,6 @@
         <p class="lead">
 					<%= yield %>
 				</p>
-        <p><a href class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
       </div>
 
 
