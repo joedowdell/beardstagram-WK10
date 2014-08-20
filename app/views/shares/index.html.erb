@@ -15,10 +15,11 @@
 			<%= link_to 'Register', new_user_registration_path %>
 		<% end %> -->
 
+		<p>
 		<% share.clips.each do |clip| %>
 			<%= link_to clip.text, clip %>
-
 		<% end %>
+		</p>
 	<% end %>
 <% else %>
  No shares
