@@ -1,20 +1,12 @@
 <% if @shares.any? %>
 	<% @shares.each do |share| %>
 		<h3><%= share.title %></h3>
+		<p>
+			Beard snapped in <%= link_to share.address, share_map_path(share) %>
+		</p>
 		<% if share.picture.present? %>
 			<%= image_tag share.picture.url(:medium), class: 'uploaded-pic' %>
 		<% end %>
-<!-- 
-		
-		<% if user_signed_in? %>
-			<%= link_to 'New share', new_share_path %>
-
-			<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-		<% else %>
-			<%= link_to 'Sign in', new_user_session_path %>
-			<%= link_to 'Register', new_user_registration_path %>
-		<% end %> 
--->
 
 		<p>
 

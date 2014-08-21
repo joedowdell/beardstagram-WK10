@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :shares
+  
+  resources :shares do
+    resource :map
+  end
+
   resources :clips
   root to: "shares#index"
 

@@ -8,11 +8,14 @@
 		<%= f.label :picture %>
   	<%= f.file_field :picture %>
 	</p>
-
+	<p>
+		<%= f.label :address %>
+		<%= f.text_field :address %>
+	</p>
 	<p>
 		<%= f.label :clip_list, 'Clips' %>
 		<%= f.text_field :clip_list %>
-
+	</p>
 	<p>
 		<%= f.submit 'Create share' %>
 	</p>
