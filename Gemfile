@@ -44,12 +44,13 @@ group :development, :test do
 gem 'rspec-rails'
 gem 'capybara'
 gem 'warden'
-
+gem 'launchy'
 end
 
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'devise'
 
 gem 'bootstrap-sass'
