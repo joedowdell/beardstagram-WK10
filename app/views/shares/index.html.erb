@@ -10,9 +10,10 @@
 
 		<p>
 
-		<% share.clips.each do |clip| %>
-			<%= link_to clip.text, clip %>
-		<% end %>
+			<% share.clips.each do |clip| %>
+				<%= link_to clip.text, clip %>
+			<% end %>
+			£<%= share.price %>
 	
 		</p>
 	<% end %>
