@@ -13,7 +13,7 @@
 			<% share.clips.each do |clip| %>
 				<%= link_to clip.text, clip %>
 			<% end %>
-			£<%= share.price %>
+			£<%= share.price %><%= link_to '/charges/new' %>
 	
 		</p>
 	<% end %>

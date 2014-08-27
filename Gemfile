@@ -41,18 +41,19 @@ gem 'spring',        group: :development
 
 group :development, :test do
 
-gem 'rspec-rails'
-gem 'capybara'
-gem 'warden'
-gem 'launchy'
+	gem 'rspec-rails'
+	gem 'capybara'
+	gem 'warden'
+	gem 'launchy'
+	gem 'factory_girl_rails'
 end
 
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
 
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+
 gem 'devise'
-
 gem 'bootstrap-sass'
-
 gem 'autoprefixer-rails'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
