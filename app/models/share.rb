@@ -11,6 +11,7 @@ class Share < ActiveRecord::Base
 
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
   has_and_belongs_to_many :clips
+  belongs_to :user
 
   def clip_list
   end
@@ -21,6 +22,11 @@ class Share < ActiveRecord::Base
  		some_clips.downcase.split(', ').uniq.each do |clip|
  			self.clips << Clip.find_or_create_by(text: clip)
  		end
+ 	end
+
+ 	def price_calc
+ 		self.price = 0 if self.price == nil
+ 		self.price.to_i * 100
  	end
 
 end

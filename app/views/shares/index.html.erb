@@ -1,5 +1,6 @@
 <% if @shares.any? %>
 	<% @shares.each do |share| %>
+		<% @share = share %>
 		<h3><%= share.title %></h3>
 		<p>
 			Beard snapped in <%= link_to share.address, share_map_path(share) %>
@@ -10,15 +11,15 @@
 
 		<p>
 
-			<% share.clips.each do |clip| %>
-				<%= link_to clip.text, clip %>
-			<% end %>
-			£<%= share.price %><%= link_to '/charges/new' %>
-	
+		<% share.clips.each do |clip| %>
+			<%= link_to clip.text, clip %>
+		<% end %><br>
+		£<%=share.price%> <%= render '/charges/new' %>
+
 		</p>
+
 	<% end %>
 <% else %>
  No shares
 <% end %>
-
 

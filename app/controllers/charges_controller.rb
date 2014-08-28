@@ -1,11 +1,12 @@
 class ChargesController < ApplicationController
 
 	def new
+		@share = Share.find(params[:id])
 	end
 
 	def create
-	  # Amount in cents
-	  @amount = 500
+	  @share = Share.find(params[:id])
+	  @amount = @share.price_calc
 
 	  customer = Stripe::Customer.create(
 	    :email => 'example@stripe.com',
@@ -16,7 +17,7 @@ class ChargesController < ApplicationController
 	    :customer    => customer.id,
 	    :amount      => @amount,
 	    :description => 'Rails Stripe customer',
-	    :currency    => 'usd'
+	    :currency    => 'gbp'
 	  )
 
 	rescue Stripe::CardError => e
